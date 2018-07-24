@@ -1,0 +1,29 @@
+page-carrito-compras-upd {
+  .toolbar-ios {
+    padding: 0;
+  }
+
+  #tienda-img {
+    background-position: center;
+    height: 120px;
+  }
+
+  #tienda-opacity {
+    position: relative;
+    background: rgba(0, 0, 0, 0.45);
+    width: 100%;
+    height: 100%;
+    padding: 3px 8px 10px 8px;
+    color: white;
+  }
+
+  .botones-cantidad{
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #costo-total{
+    margin: 0px;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,59 @@
+page-perfil-lst {
+  ion-title{
+    text-align: center;
+  }
+  //content
+
+  .caja-usuario{
+    width:100%;
+    border-bottom:1px solid #e4e4e4;
+    height: 30%;
+  }
+  .foto-usuario{
+    //border:4px solid rgb(186,186,186);
+    width: 100px;
+    height:100px;
+    margin: 0 auto ;
+    //border-radius:50px;
+    opacity: 0.5;
+    margin-top: 30px;
+  }
+  .foto{
+    width: auto;
+    height:auto;
+    border-radius:50px;
+
+  }
+  .cerrar-sesion{
+    font-size: 25px;
+    opacity: 0.9;
+    margin-top: 85px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,103 @@
+<!--
+  Generated template for the EstadoPedidoDtPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Estado del pedido</ion-title>
+    <ion-buttons end (click)="navegargeolocalizacion()">
+      <button ion-button icon-only>
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+  <ion-toolbar>
+    <!-- IF pone la imagen que tiene en la base de datos -->
+    <div *ngIf="imagen(infoTienda.imagen)">
+      <div id="tienda-img" [style.backgroundImage]="'url(' + infoTienda.imagen + ')'">
+        <div id="tienda-opacity">
+          <h3>{{ infoTienda.name }}</h3>
+          Tel: {{ infoTienda.mobile }}<br/>
+          Dirección: {{ infoTienda.direction }}
+        </div>
+      </div>
+    </div>
+    <!-- / END IF -->
+    <!-- TODO: PONER BOTON IR A TIENDAS con una x Y PONER MENU-->
+    <!-- ELSE pone la imagen por defecto -->
+    <div *ngIf="!imagen(infoTienda.imagen)">
+      <div id="tienda-img" style="background-image: url('/assets/img/tiendas/defecto-tienda.jpg')">
+        <div id="tienda-opacity">
+          <h3>{{ infoTienda.name }}</h3>
+          Tel: {{ infoTienda.mobile }}<br/>
+          Dirección: {{ infoTienda.direction }}
+        </div>
+      </div>
+    </div>
+    <!-- / ELSE  -->
+  </ion-toolbar>
+
+
+</ion-header>
+<!--
+todo:(PEUDE ESPERAR DISEÑO) definir las etapas(imagense o javascript ) y el titulo se corta en celulares pequenos
+-->
+<ion-content>
+
+  <!-- TODO: (PUEDE ESPERAR FALTA QUE NOS ENVIEN LAS IMAGENES)TIENE QUEMADA IMAGEN DE PASOS-->
+
+  <!-- paso 3 en la base de datos es pedido entregado al usuario, que en imagenes seria el paso 5 -->
+  <div class="imagen">
+    <div class="img" style="background-image: url('/assets/img/estado-pedidos/paso-5.png')"></div>
+  </div>
+
+  <div class="imagen">
+    <div class="img" style="background-image: url('/assets/img/estado-pedidos/defecto.jpg')"></div>
+  </div>
+
+  <br><br>
+
+
+  <div class="row">
+    <div item-end class="content-stars" offset-4 col-5>
+      <!-- estrellas de buena calificacion -->
+      <ion-icon name="star" class="stars" *ngIf="numeroEstrellas >= 1" (click)="cambiarCalificacion(1)"></ion-icon>
+      <ion-icon name="star" class="stars" *ngIf="numeroEstrellas >= 2" (click)="cambiarCalificacion(2)"></ion-icon>
+      <ion-icon name="star" class="stars" *ngIf="numeroEstrellas >= 3" (click)="cambiarCalificacion(3)"></ion-icon>
+      <ion-icon name="star" class="stars" *ngIf="numeroEstrellas >= 4" (click)="cambiarCalificacion(4)"></ion-icon>
+      <ion-icon name="star" class="stars" *ngIf="numeroEstrellas >= 5" (click)="cambiarCalificacion(5)"></ion-icon>
+      <!-- / FIN estrellas de buena calificacion -->
+
+      <!-- estrellas de mala calificacion -->
+      <ion-icon name="star" class="stars-bad" *ngIf="numeroEstrellas < 1" (click)="cambiarCalificacion(1)"></ion-icon>
+      <ion-icon name="star" class="stars-bad" *ngIf="numeroEstrellas < 2" (click)="cambiarCalificacion(2)"></ion-icon>
+      <ion-icon name="star" class="stars-bad" *ngIf="numeroEstrellas < 3" (click)="cambiarCalificacion(3)"></ion-icon>
+      <ion-icon name="star" class="stars-bad" *ngIf="numeroEstrellas < 4" (click)="cambiarCalificacion(4)"></ion-icon>
+      <ion-icon name="star" class="stars-bad" *ngIf="numeroEstrellas < 5" (click)="cambiarCalificacion(5)"></ion-icon>
+      <!-- / FIN estrellas de mala calificacion -->
+
+    </div>
+
+  </div>
+
+  <br>
+
+  <button offset-3 col-6 small ion-button color="primary" (click)="calificar()">Calificar</button>
+
+  <p align="center">
+    <a (click)="continuarSinCalificar()">Continuar sin calificar</a>
+  </p>
+
+
+</ion-content>

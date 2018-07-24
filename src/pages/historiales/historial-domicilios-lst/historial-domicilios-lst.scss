@@ -1,0 +1,21 @@
+page-historial-domicilios-lst {
+  .content-stars{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+  }
+
+  .item{
+    //margin-left: 0px;
+    padding: 0px;
+  }
+
+  // colorea las estrellas de buena calificacion
+  .stars{
+    color: color($colors,stars,base);
+  }
+  // colorea las estrellas de mala calificacion
+  .stars-bad{
+    color: color($colors,light,base);
+  }
+}

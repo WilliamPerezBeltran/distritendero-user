@@ -1,0 +1,29 @@
+<!--
+  Generated template for the ItemsAddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>items-add</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="item.name"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="save()">Guardar</button>
+
+</ion-content>

@@ -1,0 +1,101 @@
+<!--
+  Generated template for the CategoriasLstPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Categorías</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+
+    <!-- IF pone la imagen que tiene en la base de datos -->
+    <div *ngIf="tiendaImagen(infoTienda.imagen)">
+      <div id="tienda-img" [style.backgroundImage]="'url(' + infoTienda.imagen + ')'">
+        <div id="tienda-opacity">
+          <h3>{{ infoTienda.name }}</h3>
+          Tel: {{ infoTienda.mobile }}<br/>
+          Dirección: {{ infoTienda.direction }}
+        </div>
+      </div>
+    </div>
+    <!-- / END IF -->
+
+    <!-- ELSE pone la imagen por defecto -->
+    <div *ngIf="!tiendaImagen(infoTienda.imagen)">
+      <div id="tienda-img" style="background-image: url('assets/img/tiendas/defecto-tienda.jpg')">
+        <div id="tienda-opacity">
+          <h3>{{ infoTienda.name }}</h3>
+          Tel: {{ infoTienda.mobile }}<br/>
+          Dirección: {{ infoTienda.direction }}
+        </div>
+      </div>
+    </div>
+    <!-- / ELSE  -->
+
+  </ion-toolbar>
+
+  <!--todo: (PUEDE ESPERAR DISEÑO)falta arreglar el diseño de select-->
+  <ion-toolbar id="submenu" color="light">
+
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label>Filtrar categorías</ion-label>
+        <!-- Select Categorias -->
+        <ion-select>
+          <ion-option *ngFor="let categoria of categorias" (ionSelect)="navegarProductos($event)"
+                      [value]="categoria.id_categoria">{{ categoria.Nombre }}
+          </ion-option>
+        </ion-select>
+        <!-- / FIN Select Categorias -->
+      </ion-item>
+    </ion-list>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content id="categorias">
+
+  <div>
+
+    <!-- Categorias -->
+    <div class="category" *ngFor="let categoria of categorias" (click)="navegarProductos(categoria.id_categoria)">
+      <!-- IF si no trae imagen , pinta imagen por defecto -->
+      <div *ngIf="!categoriaImagen(categoria.imagen)">
+        <div class="img" style="background-image: url('/assets/img/categorias/defecto.jpg')"></div>
+      </div>
+      <!-- / FIN IF -->
+
+      <!-- Else pone imagen dinamica -->
+      <div *ngIf="categoriaImagen(categoria.imagen)">
+        <div class="img" [style.backgroundImage]="'url(' + categoria.imagen + ')'"></div>
+      </div>
+      <!-- / FIN ELSE -->
+
+      <div class="title">{{ categoria.Nombre }}</div>
+    </div>
+    <!-- / FIN Categorias -->
+
+  </div>
+
+
+  <!-- TODO: colocar Badge a la derecha -->
+  <ion-fab right bottom color="light">
+    <!-- <ion-badge right>{{ cantidadProductosSeleccionados }}</ion-badge> -->
+
+    <ion-badge right>{{ cantidadProductosSeleccionados }}</ion-badge>
+    <button ion-fab color="gray" (click)="navegarCarrito()">
+      <ion-icon name="cart"></ion-icon>
+    </button>
+  </ion-fab>
+
+
+
+</ion-content>

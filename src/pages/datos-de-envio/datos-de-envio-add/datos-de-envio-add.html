@@ -1,0 +1,182 @@
+<!--
+  Generated template for the CategoriasLstPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary"end>
+    <ion-title>Datos de envio sdsdsdadd page</ion-title>
+
+
+  </ion-navbar>
+  <!-- todo: corregir borders de los inputs, agregar la linea que conecta las etapasde los pasos -->
+  <ion-toolbar>
+    <div id="direcciones-img" style="background-image: url('/assets/img/tiendas/panaderia.jpg')">
+      <div id="tienda-opacity">
+        <h3>Panadería La Duquesita</h3>
+        Tel: 314567890<br/>
+        Dirección: Cll 127 # 11-21
+      </div>
+    </div>
+  </ion-toolbar>
+
+
+
+</ion-header>
+
+<ion-content>
+
+  <div style="padding: 5px;">
+
+    <div class="caja-etapas" >
+      <div class="etapas-texto" >Escoge tus Productos</div>
+      <div class="etapas-texto" >Ingresa Dirección</div>
+      <div class="etapas-texto" >Pedido Enviado</div>
+      <div class="etapas-texto" >En camino</div>
+      <div class="etapas-texto" >Entregado</div>
+
+    </div>
+    <div class="caja-etapas-texto" >
+      <div class="etapas" >1</div>
+      <div class="etapas" >2</div>
+      <div class="etapas" >3</div>
+      <div class="etapas" >4</div>
+      <div class="etapas" >5</div>
+    </div>
+
+    <div class="btn-direcciones">
+      <button (click)="irAverDireccion()" ion-button color="primary" offset-4>Ver Direcciones </button>
+    </div>
+
+    <div class="datos-formulario">
+      <ion-grid>
+        <ion-row>
+          <!---Primera fila del formulario -->
+          <ion-item class="input-border" >
+            <!---Primera fila del formulario -->
+            <ion-label >Tipo de direccion</ion-label>
+            <ion-select [(ngModel)]="data.direction_uno" interface="popover" >
+              <ion-option value="Avenida">Avenida </ion-option>
+              <ion-option value="Avenida_calle">Avenida_calle </ion-option>
+              <ion-option value="Avenida_carrera">Avenida_carrera </ion-option>
+              <ion-option value="Calle">Calle </ion-option>
+              <ion-option value="Callejón">Callejón </ion-option>
+              <ion-option value="Carrera">Carrera </ion-option>
+              <ion-option value="Circular">Circular </ion-option>
+              <ion-option value="Diagonal">Diagonal </ion-option>
+              v                <ion-option value="Manzana">Manzana </ion-option>
+              <ion-option value="Transversal">Transversal </ion-option>
+              <ion-option value="Via">Via </ion-option>
+            </ion-select>
+          </ion-item>
+
+        </ion-row>
+
+
+
+        <ion-row>
+          <ion-col>
+            <ion-item class="input-border" >
+              <ion-input type="text" placeholder="Text Input" [(ngModel)]="data.direction_dos"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item class="input-border" >
+              <ion-input type="text" placeholder="Text Input" [(ngModel)]="data.direction_tres"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item class="input-border" >
+              <ion-input type="text" placeholder="Text Input" [(ngModel)]="data.direction_cuatro"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+
+        <!---Segunda  fila del formulario -->
+
+        <ion-row>
+          <ion-item class="input-border" >
+            <ion-input type="text" placeholder="Ej: apartamento 407 Torre B" [(ngModel)]="data.lugar"></ion-input>
+          </ion-item>
+        </ion-row>
+        <!---tercera fila del formulario -->
+
+        <ion-row>
+          <ion-col>
+            <ion-item class="input-border" >
+              <ion-input type="text" placeholder="Barrio" [(ngModel)]="data.barrio"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item class="input-border" >
+              <ion-input type="number" placeholder="Telefono" [(ngModel)]="data.telefono"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!---cuarta  fila del formulario -->
+
+        <ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-col>
+                <ion-item class="input-border" >
+                  <ion-label >Método de pago</ion-label>
+                  <ion-select [(ngModel)]="data.MetodoPago" interface="popover">
+                    <ion-option value="Efectivo">Efectivo </ion-option>
+                    <ion-option *ngIf="data.datafono==1" value="Datafono">Datafono</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+        <!---quinta fila del formulario -->
+
+        <ion-row  >
+          <ion-item *ngIf="data.MetodoPago=='Efectivo'" class="input-border" >
+            <ion-input type="text" placeholder="Con cuanto pagas" [(ngModel)]="data.dineroVuelto" ></ion-input>
+          </ion-item>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="observaciones" >
+            <p style="color: #838383;">Observaciones</p>
+
+            <ion-list>
+              <ion-item>
+                <ion-textarea type="text" class="input-border"  rows="5" [(ngModel)]="data.observaciones"></ion-textarea>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </div>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label >Guardar Dirección</ion-label>
+          <ion-checkbox   [(ngModel)]="data.guardarDireccion "></ion-checkbox>
+        </ion-item>
+        <br>
+      </ion-col>
+
+      <ion-col>
+        <ion-item *ngIf="data.guardarDireccion ==true" class="input-border" >
+          <ion-input  type="text" placeholder="Nombre favorito" [(ngModel)]="data.place"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <div >
+      <button ion-button  offset-3 class="btn-guardar-direcciones" (click)="guardarDatos()">Siguiente</button>
+    </div>
+
+  </div>
+
+</ion-content>

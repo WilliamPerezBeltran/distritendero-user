@@ -1,0 +1,93 @@
+<!--
+  Generated template for the TiendasLstPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <!--
+  todo:(PUEDE ESPERAR DISEÑO)alinear datos tienda , color de fondo de alrededor del select, arreglar colores de fondo en tiendas, Falta un poco de diseño para parecerse mas al diseño(Letras)
+  -->
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pastelpan app</ion-title>
+    <!--
+        <ion-buttons end>
+          <button ion-button icon-only>
+            <ion-icon name="md-search"></ion-icon>
+          </button>
+        </ion-buttons>
+    -->
+  </ion-navbar>
+
+  <ion-toolbar>
+
+    <!-- TODO: (PUEDE ESPERAR DISEÑO) -->
+    <div id="tiendas-header">
+
+      <ion-slides *ngIf="imagenesBanner && imagenesBanner.length" pager loop="true" speed="3000" autoplay="3000">
+        <ion-slide class="tienda-slide" *ngFor="let imgBanner of imagenesBanner"
+                   [style.backgroundImage]="'url(' + imgBanner.logo + ')'"></ion-slide>
+      </ion-slides>
+    </div>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="tiendas">
+
+  <ion-card *ngFor="let tienda of tiendas">
+
+    <!-- IF , si no tiene Imagen pinta uno por defecto -->
+    <img src="assets/img/tiendas/defecto-tienda.jpg" *ngIf="!tiendaImagen(tienda.imagen)">
+    <!-- / FIN IF -->
+
+    <!-- Else pone imagen dinamica -->
+    <img  [src]="tienda.imagen" *ngIf="tiendaImagen(tienda.imagen)">
+    <!-- / FIN ELSE -->
+
+    <ion-row>
+      <ion-col>
+        <div class="logo">
+          <!-- IF , si no tiene logo pinta uno por defecto -->
+          <img src="assets/img/tiendas/defecto-logo.jpg" *ngIf="!tiendaImagen(tienda.logo)">
+          <!-- / FIN IF -->
+          <!-- Else pone imagen dinamica -->
+          <img [src]="tienda.logo" *ngIf="tiendaImagen(tienda.logo)">
+          <!-- / FIN ELSE -->
+        </div>
+      </ion-col>
+      <ion-col col-6>
+        <h4>{{ tienda.name }}</h4>
+        <p>{{ tienda.direction }}</p>
+      </ion-col>
+      <ion-col>
+        <!-- estrellas de buena calificacion -->
+        <ion-icon name="md-star" class="stars" *ngIf="tienda.estrellas >= 1"></ion-icon>
+        <ion-icon name="md-star" class="stars" *ngIf="tienda.estrellas >= 2"></ion-icon>
+        <ion-icon name="md-star" class="stars" *ngIf="tienda.estrellas >= 3"></ion-icon>
+        <ion-icon name="md-star" class="stars" *ngIf="tienda.estrellas >= 4"></ion-icon>
+        <ion-icon name="md-star" class="stars" *ngIf="tienda.estrellas >= 5"></ion-icon>
+        <!-- / FIN estrellas de buena calificacion -->
+
+        <!-- estrellas de mala calificacion -->
+        <ion-icon name="md-star" class="stars-bad" *ngIf="tienda.estrellas < 1"></ion-icon>
+        <ion-icon name="md-star" class="stars-bad" *ngIf="tienda.estrellas < 2"></ion-icon>
+        <ion-icon name="md-star" class="stars-bad" *ngIf="tienda.estrellas < 3"></ion-icon>
+        <ion-icon name="md-star" class="stars-bad" *ngIf="tienda.estrellas < 4"></ion-icon>
+        <ion-icon name="md-star" class="stars-bad" *ngIf="tienda.estrellas < 5"></ion-icon>
+        <!-- / FIN estrellas de mala calificacion -->
+
+        <button ion-button color="success" small (click)="seleccionarTienda(tienda)">Seleccionar</button>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+</ion-content>

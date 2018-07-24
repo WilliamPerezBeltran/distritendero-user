@@ -1,0 +1,62 @@
+<!--
+  Generated template for the CategoriasLstPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Mis Datos</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <div id="tienda-img">
+      <div id="tienda-opacity">
+        <img *ngIf="imagen(data.imgProfile)" class="foto" [src]="data.imgProfile">
+        <img *ngIf="!imagen(data.imgProfile)" class="foto" [src]="'assets/img/perfil/addperson.png'">
+      </div>
+    </div>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list no-lines radio-group [(ngModel)]="data.sex">
+
+    <ion-item>
+      <ion-input type="text" placeholder="Nombre" [(ngModel)]="data.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Teléfono" [(ngModel)]="data.mobile"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Correo" [(ngModel)]="data.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="date" placeholder="Fecha de nacimiento" [(ngModel)]="data.date"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Masculino</ion-label>
+      <ion-radio value="M"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Femenino</ion-label>
+      <ion-radio value="F"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <a (click)="goToCambiarContrasena()">Cambiar mi contraseña</a>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="validar()" >Guardar</button>
+
+</ion-content>

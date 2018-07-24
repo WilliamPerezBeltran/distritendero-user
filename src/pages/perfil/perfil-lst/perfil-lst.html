@@ -1,0 +1,58 @@
+<!--
+  Generated template for the CategoriasLstPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+
+    <!-- Title -->
+    <ion-title>Perfil</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+<!--
+todo: cambiar diseno de boton cerrar sesion
+-->
+
+<ion-content>
+  <div class="caja-usuario">
+    <div class="foto-usuario">
+      <img *ngIf="imagen(user.imgProfile)" class="foto" [src]="user.imgProfile">
+      <img *ngIf="!imagen(user.imgProfile)" class="foto" [src]="'/assets/img/perfil/addperson.png'">
+    </div>
+  </div>
+
+
+  <ion-list>
+
+
+    <ion-item (click)="goToUsuarioUpdPage()">
+      <ion-icon name="person" item-start></ion-icon>
+      Mis Datos
+      <ion-icon name="arrow-forward" item-end color="primary"></ion-icon>
+    </ion-item>
+
+
+    <ion-item (click)="navegarDireccionesFavoritas()">
+      <ion-icon name="star" item-start color="stars"></ion-icon>
+      Mis direcciones favoritas
+      <ion-icon name="arrow-forward" item-end color="primary"></ion-icon>
+    </ion-item>
+
+    <ion-item (click)="navegarHistorialDomicilios()">
+      <ion-icon name="time" item-start></ion-icon>
+      historial de domicilio
+      <ion-icon name="arrow-forward" item-end color="primary"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+
+
+
+  <button class="cerrar-sesion" ion-button color="danger" clear offset-3 col-6 (click)="cerrarSesion()">Cerrar Sesión</button>
+
+
+</ion-content>

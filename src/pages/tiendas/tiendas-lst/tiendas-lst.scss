@@ -1,0 +1,48 @@
+page-tiendas-lst {
+
+  #tienda-img, #tiendas-header {
+    height: 120px;
+  }
+
+  .tienda-slide {
+    background-position: center;
+    background-size: cover;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: color($colors, primary, base);
+  }
+
+  .toolbar-ios {
+    padding: 0;
+  }
+
+  .tiendas {
+    background-color: #ededed;
+  }
+
+  .logo {
+    border: 1px solid #ededed;
+  }
+
+  h4 {
+    color: color($colors, secondary, base) !important;
+    font-weight: bold !important;
+    font-size: 2rem !important;
+  }
+
+  p {
+    color: #222 !important;
+  }
+
+  // colorea las estrellas de buena calificacion
+  .stars {
+    color: color($colors, stars, base);
+  }
+
+  // colorea las estrellas de mala calificacion
+  .stars-bad {
+    color: color($colors, light, base);
+  }
+
+}

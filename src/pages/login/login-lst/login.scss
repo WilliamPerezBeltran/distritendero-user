@@ -1,0 +1,65 @@
+page-login {
+  .contenido{
+    background-image: url('../assets/img/login/bg-02.jpg');
+    background-repeat: no-repeat;
+  }
+
+}
+.contenedor{
+  text-align: center;
+  margin-top: 30px;
+}
+.facebook{
+  display:inline-block;
+}
+.google{
+  display:inline-block;
+}
+.logoFacebook{
+  color: rgb(0,102,156);
+}
+.caja{
+  background: rgb(232,232,232);
+  padding: 0px;
+}
+
+.logo-google{
+  color: rgb(224,59,37);
+}
+.login{
+  color: #f1e6ce;
+  font-size: 35px;
+  padding: 0;
+  height: 90px;
+}
+.login-label{
+  text-align: center;
+}
+.ingresar{
+  background-color: #d05100;
+  color: #ffffff;
+
+}
+
+#olvide {
+  color: white;
+}
+
+#olvide a {
+  color: #f8cb00;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#registro, #registro a {
+  color: white;
+}
+
+#registro a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.transparente{
+  background: transparent;
+  color: #f1e6ce;
+}

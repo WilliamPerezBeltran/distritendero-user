@@ -1,0 +1,27 @@
+<ion-menu [content]="NAV" persistent="true">
+  <ion-content id="menu">
+    <div id="menu-header">
+
+      <div>
+        <img *ngIf="user.name" class="profile-img" src="{{user.imgProfile}}">
+      </div>
+
+      <div class="info-profile">
+        <h3>{{user.name}}</h3>
+        {{user.telefono}}
+      </div>
+
+    </div>
+
+    <ion-list no-lines>
+      <ion-item *ngFor="let pagina of paginas" (click)="goToPage(pagina.componente)" menuClose>
+        <ion-icon item-left name="{{pagina.icono}}"></ion-icon>
+        {{pagina.titulo}}
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav #NAV [root]="rootPage"></ion-nav>

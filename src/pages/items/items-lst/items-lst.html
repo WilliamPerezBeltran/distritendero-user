@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-title>
+      Listado de items
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="newItem()">
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{item.name}}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,56 @@
+<!--
+  Generated template for the CategoriasLstPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary"end>
+    <ion-title>Mis Direcciones</ion-title>
+
+
+
+  </ion-navbar>
+
+  <!-- todo:arreglar boton close-->
+
+
+
+
+</ion-header>
+
+<ion-content>
+
+
+  <div *ngFor="let info of infoDirecciones" class="direcciones" (click)="seleccionarDireccion(info)">
+    <div class="descripcion borderButton">
+      <p >{{info.place}}</p>
+      <ion-buttons end>
+        <button (click)="delete(info.id)"  ion-button icon-only>
+          <ion-icon name="close-circle"></ion-icon>
+        </button>
+      </ion-buttons>
+
+
+    </div>
+
+    <div class="descripcion">
+      <p>{{info.direction_uno}}{{info.direction_dos}} #{{info.direction_tres}}-{{info.direction_cuatro}}</p>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ion-content>

@@ -1,0 +1,201 @@
+<!--
+  Generated template for the CategoriasLstPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary"end>
+    <ion-title>Datos de envio</ion-title>
+
+
+  </ion-navbar>
+  <!-- todo: corregir borders de los inputs, agregar la linea que conecta las etapasde los pasos -->
+  <ion-toolbar>
+    <!-- IF pone la imagen que tiene en la base de datos -->
+    <div *ngIf="imagen(infoTienda.imagen)">
+      <div id="tienda-img" [style.backgroundImage]="'url(' + infoTienda.imagen + ')'">
+        <div id="tienda-opacity">
+          <h3>{{ infoTienda.nombre_tienda }}</h3>
+          Tel: {{ infoTienda.telefono }}<br/>
+          Dirección: {{ infoTienda.direccion_tienda }}
+        </div>
+      </div>
+    </div>
+    <!-- / END IF -->
+
+    <!-- ELSE pone la imagen por defecto -->
+    <div *ngIf="!imagen(infoTienda.imagen)">
+      <div id="tienda-img" style="background-image: url('/assets/img/tiendas/defecto-tienda.jpg')">
+        <div id="tienda-opacity">
+          <h3>{{ infoTienda.nombre_tienda }}</h3>
+          Tel: {{ infoTienda.telefono }}<br/>
+          Dirección: {{ infoTienda.direccion_tienda }}
+        </div>
+      </div>
+    </div>
+    <!-- / ELSE  -->
+  </ion-toolbar>
+
+
+
+</ion-header>
+
+<ion-content>
+
+  <div class="imagen">
+    <div class="img" style="background-image: url('/assets/img/estado-pedidos/paso-2.png')"></div>
+  </div>
+
+  <div style="padding: 5px;">
+
+    <br>
+
+
+
+    <div class="btn-direcciones">
+      <button (click)="irAverDireccion()" ion-button color="primary" offset-4>Ver Direcciones </button>
+    </div>
+
+    <div class="datos-formulario">
+      <ion-grid>
+        <ion-row>
+          <!---Primera fila del formulario -->
+          <ion-item class="input-border" >
+            <!---Primera fila del formulario -->
+            <ion-label >Tipo de direccion</ion-label>
+            <ion-select [(ngModel)]="data.direction_uno" interface="popover" >
+              <ion-option value="Avenida" >Avenida </ion-option>
+              <ion-option value="Avenida_Calle">Avenida_calle </ion-option>
+              <ion-option value="Avenida_Carrera">Avenida_carrera </ion-option>
+              <ion-option value="Calle">Calle </ion-option>
+              <ion-option value="Callejón">Callejón </ion-option>
+              <ion-option value="Carrera">Carrera </ion-option>
+              <ion-option value="Circular">Circular </ion-option>
+              <ion-option value="Diagonal">Diagonal </ion-option>
+              <ion-option value="Manzana">Manzana </ion-option>
+              <ion-option value="Transversal">Transversal </ion-option>
+              <ion-option value="Via">Via </ion-option>
+            </ion-select>
+          </ion-item>
+
+        </ion-row>
+
+
+
+        <ion-row>
+
+
+          <ion-col >
+            <ion-item class="input-border" >
+              <ion-input type="text" placeholder="Text Input" [(ngModel)]="data.direction_dos"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item class="input-border" >
+              <ion-input type="text" placeholder="Text Input" [(ngModel)]="data.direction_tres"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item class="input-border" >
+              <ion-input type="text" placeholder="Text Input" [(ngModel)]="data.direction_cuatro"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+
+        <!---Segunda  fila del formulario -->
+
+        <ion-row>
+          <ion-item class="input-border" >
+            <ion-input type="text" placeholder="Ej: apartamento 407 Torre B" [(ngModel)]="data.lugar"></ion-input>
+          </ion-item>
+        </ion-row>
+        <!---tercera fila del formulario -->
+
+        <ion-row>
+          <ion-col>
+            <ion-item class="input-border" >
+              <ion-input type="text" placeholder="Barrio" [(ngModel)]="data.barrio"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item class="input-border" >
+              <ion-input type="number" placeholder="Telefono" [(ngModel)]="data.telefono"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!---cuarta  fila del formulario -->
+
+        <ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-col>
+                <ion-item class="input-border" >
+                  <ion-label >Método de pago</ion-label>
+                  <ion-select [(ngModel)]="data.MetodoPago" interface="popover">
+                    <ion-option value="0">Efectivo </ion-option>
+                    <ion-option *ngIf="infoTienda.opcionDatafono=='1'" value="1">Datafono</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+        <!---quinta fila del formulario -->
+
+        <ion-row  >
+          <ion-item *ngIf="data.MetodoPago=='0'" class="input-border" >
+            <ion-input type="text" placeholder="Con cuanto pagas" [(ngModel)]="data.dineroVuelto" ></ion-input>
+          </ion-item>
+
+        </ion-row>
+
+
+
+        <ion-row>
+          <ion-col class="observaciones" >
+            <p style="color: #838383;">Observaciones</p>
+
+            <ion-list>
+              <ion-item>
+                <ion-textarea type="text" class="input-border"  rows="5" [(ngModel)]="data.observaciones"></ion-textarea>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </div>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label >Guardar Dirección</ion-label>
+          <ion-checkbox   [(ngModel)]="data.guardarDireccion "></ion-checkbox>
+        </ion-item>
+        <br>
+      </ion-col>
+
+      <ion-col>
+        <ion-item *ngIf="data.guardarDireccion ==true" class="input-border" >
+          <ion-input  type="text" placeholder="Nombre favorito" [(ngModel)]="data.place"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+
+
+    <div >
+      <button ion-button  offset-3 class="btn-guardar-direcciones" (click)="editarDatos()">Siguiente</button>
+    </div>
+
+  </div>
+
+
+
+
+
+</ion-content>

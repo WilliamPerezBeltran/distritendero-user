@@ -1,0 +1,31 @@
+@font-face{
+  font-family: 'JosefinSans';
+  src: url('../assets/JosefinSans-Regular.ttf') format("truetype");
+}
+
+@font-face{
+  font-family: 'JosefinSans';
+  src: url('../assets/JosefinSans-Bold.ttf') format("truetype");
+  font-weight: bold;
+}
+
+ion-app {
+  font-family: "JosefinSans" !important;
+}
+
+#menu, #menu ion-item {
+  background-color: #dd9933;
+  color: white;
+}
+
+#menu-header {
+  height: 130px;
+  background-image: url('../assets/img/menu/defecto.jpg');
+}
+
+.profile-img {
+  max-width: 50px;
+  max-height: 50px;
+  margin: 20px;
+  border-radius: 25px;
+}

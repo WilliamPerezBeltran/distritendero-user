@@ -1,0 +1,63 @@
+<!--
+  Generated template for the CategoriasLstPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+
+    <!-- Title -->
+    <ion-title>Registrarse</ion-title>
+
+  </ion-navbar>
+
+  <ion-toolbar>
+    <div id="tienda-img"></div>
+  </ion-toolbar>
+
+</ion-header>
+
+<!--
+todo:arreglar inputs,arreglar texto de gracis o ponerlo como imagen
+-->
+<ion-content padding>
+
+  <ion-list no-lines>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Nombre y apellido" [(ngModel)]="datos.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="number" placeholder="Número celular" [(ngModel)]="datos.mobile"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="email" placeholder="Correo electrónico" [(ngModel)]="datos.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Clave" [(ngModel)]="datos.password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Confirma la clave" [(ngModel)]="datos.repeatPassword"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select [(ngModel)]="datos.pais">
+        <ion-option *ngFor="let pais of paises" value="{{pais.id}}">{{pais.nombre}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Aceptar terminos y condiciones</ion-label>
+      <ion-checkbox [(ngModel)]="datos.aceptarTerminos"></ion-checkbox>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="guardar()">Guardar</button>
+
+</ion-content>

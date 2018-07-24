@@ -1,0 +1,57 @@
+<!--
+  Generated template for the EstadoPedidosLstPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+
+
+    <!--  Title -->
+    <ion-title>Mis Pedidos</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+<!--
+todo: (PUEDE ESPERAR DISEÑO) se corta descripcion de la tienda
+-->
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item class="item" *ngFor="let pedido of estadoPedidos" text-wrap (click)="estadoDelPedido(pedido)">
+      <ion-thumbnail item-start>
+        <img *ngIf="imagen(pedido.logo)" [src]="pedido.logo">
+        <img *ngIf="!imagen(pedido.logo)" src="/assets/img/tiendas/defecto-logo.jpg">
+      </ion-thumbnail>
+      <h4> {{ pedido.nombre }} </h4>
+      <p> {{ pedido.direccion }} </p>
+      <p> {{ pedido.fecha_updated }} </p>
+
+      <div item-end class="content-stars">
+        <!-- estrellas de buena calificacion -->
+        <ion-icon name="star" class="stars" *ngIf="pedido.estrellas >= 1"></ion-icon>
+        <ion-icon name="star" class="stars" *ngIf="pedido.estrellas >= 2"></ion-icon>
+        <ion-icon name="star" class="stars" *ngIf="pedido.estrellas >= 3"></ion-icon>
+        <ion-icon name="star" class="stars" *ngIf="pedido.estrellas >= 4"></ion-icon>
+        <ion-icon name="star" class="stars" *ngIf="pedido.estrellas >= 5"></ion-icon>
+        <!-- / FIN estrellas de buena calificacion -->
+
+        <!-- estrellas de mala calificacion -->
+        <ion-icon name="star" class="stars-bad" *ngIf="pedido.estrellas < 1"></ion-icon>
+        <ion-icon name="star" class="stars-bad" *ngIf="pedido.estrellas < 2"></ion-icon>
+        <ion-icon name="star" class="stars-bad" *ngIf="pedido.estrellas < 3"></ion-icon>
+        <ion-icon name="star" class="stars-bad" *ngIf="pedido.estrellas < 4"></ion-icon>
+        <ion-icon name="star" class="stars-bad" *ngIf="pedido.estrellas < 5"></ion-icon>
+        <!-- / FIN estrellas de mala calificacion -->
+
+      </div>
+
+    </ion-item>
+
+
+  </ion-list>
+
+</ion-content>

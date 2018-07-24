@@ -1,0 +1,34 @@
+page-direcciones-lst {
+
+  .direcciones{
+    border: 1px solid #e4e4e4;
+    margin: 10px;
+  }
+  .descripcion{
+    width:85%;
+    margin: 0 auto;
+    vertical-align: middle;
+  }
+  .descripcion p{
+    vertical-align: middle;
+    font-size: 17px;
+    display: inline-block
+  }
+  .borderButton{
+    border-bottom: 1px solid #e4e4e4;
+  }
+
+
+  .iconClose:hover {
+    color: #fff;
+  }
+  .iconClose:hover {
+    color: #fff;
+  }
+
+  .iconClose:active {
+    color: #0000FF;
+  }
+
+
+}
